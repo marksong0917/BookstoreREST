@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import User from './user';
 import Book from './book';
 
 //connect db 
@@ -10,7 +9,9 @@ const connectDb = () => {
   });
 }
 
-const models = { User, Book };
+
+
+const models = {Book };
 
 export { connectDb };
 export default models;
