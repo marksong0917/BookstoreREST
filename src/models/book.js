@@ -39,6 +39,17 @@ bookSchema.statics.addNewBook =  async function (one, two, three, four)
   return await myBook.save() 
 }
 
+bookSchema.statics.deleteOneBook =  async function (book) 
+{
+  const myBook = await Book.findOneAndDelete({ bookName: book});
+  return await myBook.save() 
+}
+
+bookSchema.statics.updateOneBook =  async function (book, newBookName) 
+{
+  const myBook = await Book.findOneAndUpdate({ bookName: book, bookName: newBookName});
+  return await myBook.save() 
+}
 
 // 
 const Book = mongoose.model('Book', bookSchema);
