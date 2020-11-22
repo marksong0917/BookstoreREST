@@ -6,30 +6,30 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const Index = function ({ user }) {
-  const [datas, setDatas] = useState([]);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     (async () => {
-      await getDatas();
+      await getBooks();
     })();
   }, []);
 
-  const getDatas = async () => {
-    const datasResp = await Axios.get("/api/datas");
-    if (datasResp.status === 200) setDatas(datasResp.data);
+  const getBooks = async () => {
+    const booksResp = await Axios.get("/api/books");
+    if (booksResp.status === 200) setBooks(booksResp.book);
   };
 
-  const deleteData = async (data) => {
+  const deleteBook = async (book) => {
     try {
-      const resp = await Axios.post("/api/datas/delete", {
-        id: data._id,
+      const resp = await Axios.post("/api/books/delete", {
+        id: book._id,
       });
 
       if (resp.status === 200)
-        toast("the data was deleted sucessfully", { type: toast.TYPE.SUCCESS });
-      await getDatas();
+        toast("the book was deleted sucessfully", { type: toast.TYPE.SUCCESS });
+      await getBooks();
     } catch (error) {
-      toast("there was an error deleting the data", {
+      toast("there was an error deleting the book", {
         type: toast.TYPE.ERROR,
       });
     }
@@ -42,37 +42,37 @@ const Index = function ({ user }) {
       </header>
       <hr />
       <div className="content">
-        {datas &&
-          datas.map((data, i) => (
+        {books &&
+          books.map((book, i) => (
             <div key={i} className="card my-3">
               <div className="card-header clearfix">
                 <div className="float-left">
-                  <h5 className="card-title">{data.title}</h5>
-                  {data.user ? <small>~{data.user.fullname} </small> : null}
+                  <h5 className="card-title">{book.title}</h5>
+                  {book.user ? <small>~{book.user.fullname} </small> : null}
                 </div>
               </div>
 
               <div className="float-right">
-                <small>{data.updatedAt}</small>
+                <small>{book.updatedAt}</small>
               </div>
               <div className="card-body">
-                <p className="card-text">{data.synopsis}</p>
+                <p className="card-text">{book}</p>
               </div>
 
               {user ? (
                 <div className="card-footer">
                   <Link
                     to={{
-                      pathname: "datas/edit",
+                      pathname: "books/edit",
                       state: {
-                        id: data._id,
+                        id: book._id,
                       },
                     }}
                   >
                     <i className="fa fa-edit"></i>
                   </Link>
 
-                  <button type="button" onClick={() => deleteData(data)}>
+                  <button type="button" onClick={() => deleteBook(book)}>
                     <i className="fa fa-trash"></i>
                   </button>
                 </div>

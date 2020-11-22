@@ -6,9 +6,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./sessions/Login";
 import Logout from "./sessions/Logout";
-import Datas from "./datas/Index";
-import NewData from "./datas/New";
-import EditData from "./datas/Edit";
+import Books from "./books/Index";
+import NewBook from "./books/New";
+import EditBook from "./books/Edit";
 
 function Routes({ user, setUser }) {
   return (
@@ -27,11 +27,11 @@ function Routes({ user, setUser }) {
       />
       <Route
         exact
-        path="/datas"
-        render={(RenderProps) => <Datas {...RenderProps} user={user} />}
+        path="/books"
+        render={(RenderProps) => <Books {...RenderProps} user={user} />}
       />
-      <Route exact path="/datas/new" component={NewData} />
-      <Route exact path="/datas/edit" component={EditData} />
+      <Route exact path="/books/new" component={NewBook} />
+      <Route exact path="/books/edit" component={EditBook} />
     </Switch>
   );
 }

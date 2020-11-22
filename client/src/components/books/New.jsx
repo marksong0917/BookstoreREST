@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Container } from "react-bootstrap";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
-const Edit = function (props) {
-  const id = props.location.state.id;
-  //found in docs for react router
-
-  const [inputs, setInputs] = useState({
+const New = function () {
+   const [inputs, setInputs] = useState({
     bookName: "",
     bookIsbn: "",
     bookYear: "",
@@ -18,31 +15,24 @@ const Edit = function (props) {
 
   const [redirect, setRedirect] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      const dataResp = await Axios.get("/api/datas/${id}");
-      if (dataResp.status === 200) setInputs(dataResp.data);
-    })();
-  }, []);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const resp = await Axios.post("/api/datas/update", inputs);
+      const resp = await Axios.post("/api/books", inputs);
 
       if (resp.status === 200) {
-        toast("the book was updated successfully", {
+        toast("You have login in successfully", {
           type: toast.TYPE.SUCCESS,
         });
         setRedirect(true);
       } else {
-        toast("There was an issue updating the book .", {
+        toast("There was an issue creating the book post.", {
           type: toast.TYPE.ERROR,
         });
       }
     } catch (error) {
-      toast("There was an issue updating the book .", {
+      toast("There was an issue creating the book post.", {
         type: toast.TYPE.ERROR,
       });
     }
@@ -59,12 +49,12 @@ const Edit = function (props) {
     }));
   };
 
-  if (redirect) return <Redirect to="/datas" />;
+  if (redirect) return <Redirect to="/bookss" />;
 
   return (
     <Container className="my-5">
       <header>
-        <h1>Edit Book </h1>
+        <h1>New Book</h1>
       </header>
 
       <hr />
@@ -118,7 +108,7 @@ const Edit = function (props) {
 
           <Form.Group>
             <button type="submit" className="btn-primary">
-              Update
+              Create
             </button>
           </Form.Group>
         </Form>
@@ -127,4 +117,4 @@ const Edit = function (props) {
   );
 };
 
-export default Edit;
+export default New;

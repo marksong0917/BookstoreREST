@@ -59,8 +59,8 @@ app.use("/", (req, res, next) => {
 
   // Passing along flash message
   res.locals.flash = req.flash();
-  res.locals.formData = req.session.formData || {};
-  req.session.formData = {};
+  res.locals.formBook = req.session.formBook || {};
+  req.session.formBook = {};
 
   // Authentication helper
   res.locals.authorized = req.isAuthenticated();

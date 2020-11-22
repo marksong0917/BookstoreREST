@@ -27,7 +27,7 @@ const Logout = ({ setUser }) => {
       }
     })();
   }, []);
-  if (redirect) return <Redirect to="/datas" />;
+  if (redirect) return <Redirect to="/books" />;
   return null;
 };
 

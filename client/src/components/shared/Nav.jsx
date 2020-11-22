@@ -51,14 +51,14 @@ function Nav({ user }) {
               Book Archive 
             </a>
             <div className="dropdown-menu" aria-labelledby="datasDropdown">
-              <Link to="/datas" className="dropdown-item">
+              <Link to="/books" className="dropdown-item">
                 Books
               </Link>
               {user ? (
                 <Fragment>
                   {" "}
                   <div className="dropdown-divider"> </div>{" "}
-                  <Link to="datas/new" className="dropdown-item">
+                  <Link to="books/new" className="dropdown-item">
                     New Post
                   </Link>{" "}
                 </Fragment>

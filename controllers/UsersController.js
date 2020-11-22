@@ -20,7 +20,7 @@ exports.create = async (req, res) => {
   } catch (error) {
     console.log(error.message);
     req.flash("danger", error.message);
-    req.session.formData = req.body;
+    req.session.formBook = req.body;
     res.redirect(`/register`);
   }
 };

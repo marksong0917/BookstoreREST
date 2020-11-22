@@ -6,42 +6,42 @@
   </header>
   <hr />
   <div class="content">
-    <% for (let data of datas) { %>
+    <% for (let book of books) { %>
     <div class="card my-3">
       <div class="card-header clearfix">
         <div class="float-left">
-          <h5 class="card-title"><%= data.bookName %></h5>
-          <% if (typeof data.user !== 'undefined') { %>
-          <small>~ <%= data.user.fullname %></small>
+          <h5 class="card-title"><%= book.bookName %></h5>
+          <% if (typeof book.user !== 'undefined') { %>
+          <small>~ <%= book.user.fullname %></small>
           <% } %>
         </div>
 
         <div class="float-right">
-          <small><%= data.updatedAt %></small>
+          <small><%= book.updatedAt %></small>
         </div>
       </div>
 
       <div class="card-body">
         <p class="card-text">
-          <%= data.short %>
+          <%= book.short %>
         </p>
-        <a href="/datas/<%= data.id %>">more...</a>
+        <a href="/books/<%= book.id %>">more...</a>
       </div>
 
-      <% if (authorized && (typeof data.user === 'undefined' || data.user.email
+      <% if (authorized && (typeof book.user === 'undefined' || book.user.email
       === email)) { %>
       <div class="card-footer">
-        <a href="/datas/<%= data.id %>/edit">
+        <a href="/books/<%= book.id %>/edit">
           <i class="fa fa-edit"></i>
         </a>
         &nbsp;/&nbsp;
         <form
           class="form-inline"
-          action="/datas/delete"
+          action="/books/delete"
           method="post"
           onsubmit="return confirm('Are you sure you want to delete your post');"
         >
-          <input type="hidden" value="<%= data.id %>" name="id" />
+          <input type="hidden" value="<%= book.id %>" name="id" />
           <button class="delete" type="submit">
             <i class="fa fa-trash"></i>
           </button>

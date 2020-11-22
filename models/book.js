@@ -1,7 +1,10 @@
 import mongoose from 'mongoose';
 
+const mongoose = require("mongoose");
+
 //model for bookschema 
-const bookSchema = new mongoose.Schema({
+const bookSchema = new mongoose.Schema(
+  {
   bookName:{
     type: String,
     required: true,
@@ -19,10 +22,12 @@ const bookSchema = new mongoose.Schema({
         required: true,
     },
     bookId: String,
-}, {
+  },
+  {
   timestamps: true,
   collection: 'Books',
-});
+}
+);
 
 
 //function for find one book by book name  / needs the book name to find one
@@ -52,7 +57,10 @@ bookSchema.statics.updateOneBook =  async function (book, newBookName)
 }
 
 // 
-const Book = mongoose.model('Book', bookSchema);
+// const Book = mongoose.model('Book', bookSchema);
 
-//export
-export default Book;
+
+// //export
+// export default Book;
+
+module.exports = mongoose.model("book", BookSchema);

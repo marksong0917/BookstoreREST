@@ -6,7 +6,7 @@ const {
   edit,
   update,
   delete: _delete,
-} = require("../controllers/DatasController");
+} = require("../controllers/BooksController");
 
 function auth(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -17,11 +17,11 @@ function auth(req, res, next) {
   next();
 }
 module.exports = (router) => {
-  router.get("/datas", index);
-  router.get("/datas/new", auth, _new);
-  router.post("/datas", auth, create);
-  router.post("/datas/update", auth, update);
-  router.post("/datas/delete", auth, _delete);
-  router.get("/datas/:id/edit", auth, edit);
-  router.get("/datas/:id", show);
+  router.get("/books", index);
+  router.get("/books/new", auth, _new);
+  router.post("/books", auth, create);
+  router.post("/books/update", auth, update);
+  router.post("/books/delete", auth, _delete);
+  router.get("/books/:id/edit", auth, edit);
+  router.get("/books/:id", show);
 };

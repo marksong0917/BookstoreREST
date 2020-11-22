@@ -19,7 +19,7 @@ const Login = ({ setUser }) => {
     try {
       const resp = await Axios.post("/api/authenticate", inputs);
       if (resp.status === 200) {
-        setUser(resp.data.user);
+        setUser(resp.book.user);
         toast("You have login in successfully", {
           type: toast.TYPE.SUCCESS,
         });
@@ -49,7 +49,7 @@ const Login = ({ setUser }) => {
     console.log(inputs);
   };
 
-  if (redirect) return <Redirect to="/datas" />;
+  if (redirect) return <Redirect to="/books" />;
 
   return (
     <Container className="container my-5">
