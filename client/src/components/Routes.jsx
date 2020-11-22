@@ -7,10 +7,20 @@ import Logout from "./sessions/Logout";
 import Books from "./books/Index";
 import NewBook from "./books/New";
 import EditBook from "./books/Edit";
+import Register from "./users/Register";
 
 function Routes({ user, setUser }) {
   return (
     <Switch>
+
+      <Route
+        exact
+        path="/register"
+        render={(renderProps) => (
+          <Register {...renderProps} setUser={setUser} />
+        )}
+      />
+
       <Route
         exact
         path="/login"
