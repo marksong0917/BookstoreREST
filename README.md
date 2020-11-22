@@ -4,7 +4,9 @@ bookstore is a another bookstore web API created with the use of Express and Mon
 
 ## Installation
 
-Use the package.json file to do npm install
+Use the package.json file in both main folder and inside client folder to install dependencies
+npm install
+yarn install
 
 ## Usage
 
@@ -26,7 +28,7 @@ No
 ## Sample `.env`
 
 ```
-PORT=3001
-JWT_SECRET=somesecret
-DATABASE_URL=someurl.db.something
+DB_URI="mongodb+srv://cluster0-ortue.mongodb.net/test?retryWrites=true&w=majority"
+DB_USER="user"
+DB_PASS="pass"
 ```

@@ -5,6 +5,7 @@ import { Form, Container } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const Login = ({ setUser }) => {
   const [inputs, setInputs] = useState({
     email: "",
