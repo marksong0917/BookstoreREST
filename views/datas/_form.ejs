@@ -1,0 +1,38 @@
+<form
+  action="<%= (typeof actionPath === 'undefined') ? '/datas' : actionPath %>"
+  ,
+  method="POST"
+>
+  <% if (typeof actionPath !== 'undefined') { %>
+  <input type="hidden" name="id" value="<%= formData.id %>" />
+  <% } %>
+
+  <div class="form-group">
+    <label for="bookName">Book Name</label>
+    <input
+      type="text"
+      name="bookName"
+      class="form-control"
+      value="<%= formData.bookName %>"
+    />
+  </div>
+
+    <div class="form-group">
+      <label for="bookIsbn">Book Isbn</label>
+      <input type="text" name="bookIsbn" class="form-control" value="<%= formData.bookIsbn %>" />
+    </div>
+
+    <div class="form-group">
+      <label for="bookYear">Book Year</label>
+      <input type="text" name="bookYear" class="form-control" value="<%= formData.bookYear %>" />
+    </div>
+
+      <div class="form-group">
+        <label for="bookAuthor">Book Author</label>
+        <input type="text" name="bookAuthor" class="form-control" value="<%= formData.bookAuthor %>" />
+      </div>
+
+  <div class="form-group">
+    <button class="btn btn-dark">Submit</button>
+  </div>
+</form>

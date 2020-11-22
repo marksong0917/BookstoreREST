@@ -1,0 +1,20 @@
+<%- include ('../partials/header') %>
+
+<div class="container my-5">
+  <header>
+    <h1>
+      <%= data.BookName %>
+      <a href="/datas/<%= data.id %>/edit">
+        <i class="fa fa-edit"></i>
+      </a>
+    </h1>
+    <br />
+    <small>
+      <%= (data.updatedAt.toLocaleString("en-CA")) %>
+    </small>
+    <p><strong>By: <%= data.user.fullname %></strong></p>
+  </header>
+  <hr />
+</div>
+
+<%- include ('../partials/footer') %>
