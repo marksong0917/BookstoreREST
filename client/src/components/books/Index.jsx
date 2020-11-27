@@ -16,7 +16,7 @@ const Index = function ({ user }) {
 
   const getBooks = async () => {
     const booksResp = await Axios.get("/api/books");
-    if (booksResp.status === 200) setBooks(booksResp.book);
+    if (booksResp.status === 200) setBooks(booksResp.data);
   };
 
   const deleteBook = async (book) => {
@@ -45,25 +45,21 @@ const Index = function ({ user }) {
         {books &&
           books.map((book, i) => (
             <div key={i} className="card my-3">
-              <div className="card-header clearfix">
-                <div className="float-left">
-                  <h5 className="card-title">{book.title}</h5>
-                  {book.user ? <small>~{book.user.fullname} </small> : null}
-                </div>
+              <div className="card-header">
+                <h5 className="card-title">{book.bookName}</h5>
               </div>
 
-              <div className="float-right">
-                <small>{book.updatedAt}</small>
-              </div>
               <div className="card-body">
-                <p className="card-text">{book}</p>
+                <p className="card-text">
+                 {book.bookIsbn} { book.bookYear} { book.bookAuthor}. 
+                </p>
               </div>
 
-              {user ? (
+                  {user ? (
                 <div className="card-footer">
                   <Link
                     to={{
-                      pathname: "books/edit",
+                      pathname: "/books/edit",
                       state: {
                         id: book._id,
                       },

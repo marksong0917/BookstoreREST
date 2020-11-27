@@ -22,7 +22,7 @@ const Edit = function (props) {
   useEffect(() => {
     (async () => {
       const bookResp = await Axios.get(`/api/books/${id}`);
-      if (bookResp.status === 200) setInputs(bookResp.book);
+      if (bookResp.status === 200) setInputs(bookResp.data);
     })();
   }, []);
 

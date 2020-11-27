@@ -1,6 +1,6 @@
 # BOOKSTORE
 
-bookstore is a another bookstore web API created with the use of Express and MongoDB.
+Bookstore API website
 
 ## Installation
 
@@ -9,17 +9,14 @@ npm start - Start the server locally on both backend and frontend. (inside clien
 
 ## Usage
 
-Register Account - Working
-
-## Contributing
-
-No
+Running npm start on both servers will automatcally open the website for usage
 
 ## Known Issues / TO-DOs
 
-Registering - Fixed  
-Logout - Fixed
-Login - Fixed
+Authentication with Logout - Working
+List Books - Working
+New Book - Working
+Delete Book - Working
 
 Book Archive is not displaying any books to user Id
 

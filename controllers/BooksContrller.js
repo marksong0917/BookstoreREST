@@ -1,4 +1,3 @@
-const viewPath = "books";
 const Book = require("../models/Book");
 const User = require("../models/user");
 
@@ -11,7 +10,7 @@ exports.index = async (req, res) => {
   try {
     const user = await getUser(req);
 
-    const books = await Books
+    const books = await Book
       .find({user: user._id})
       .populate('user')
 
@@ -55,13 +54,13 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const user = await getUser(req);
-    let book = await Books
+    let book = await Book
       .findOne({user: user._id, _id: req.body.id});
     
     if (!book) throw new Error('book could not be found');
     
     const attributes = {user: user._id, ...req.body};
-    await book.validate(attributes);   
+    await Book.validate(attributes);   
 
     await Book.updateOne({_id: req.body.id, user: user._id}, {...req.body});
 

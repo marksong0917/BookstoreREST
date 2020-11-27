@@ -23,8 +23,7 @@ const BookSchema = new mongoose.Schema(
     bookAuthor:{
         type: String,
         required: true,
-    },
-    bookId: String,
+    }
   },
   {
     timestamps: true,
