@@ -1,18 +1,26 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
+import { Route, Switch, Redirect } from "react-router-dom";
+
+import Home from "./pages/Home";
+
+import Register from "./users/Register";
 import Login from "./sessions/Login";
 import Logout from "./sessions/Logout";
+
 import Books from "./books/Index";
 import NewBook from "./books/New";
 import EditBook from "./books/Edit";
-import Register from "./users/Register";
+
+
 
 function Routes({ user, setUser }) {
   return (
     <Switch>
-
+      <Route
+        exact
+        path="/"
+        render={(renderProps) => <Home {...renderProps} user={user} />}
+      />
       <Route
         exact
         path="/register"
@@ -20,24 +28,37 @@ function Routes({ user, setUser }) {
           <Register {...renderProps} setUser={setUser} />
         )}
       />
-
       <Route
         exact
         path="/login"
-        render={(RenderProps) => <Login {...RenderProps} setUser={setUser} />}
+        render={(renderProps) => <Login {...renderProps} setUser={setUser} />}
       />
       <Route
         exact
         path="/logout"
-        render={(RenderProps) => <Logout {...RenderProps} setUser={setUser} />}
+        render={(renderProps) => <Logout {...renderProps} setUser={setUser} />}
       />
       <Route
         exact
         path="/books"
-        render={(RenderProps) => <Books {...RenderProps} user={user} />}
+        render={(props) =>
+          user ? <Books {...props} user={user} /> : <Redirect to="/" />
+        }
       />
-      <Route exact path="/books/new" component={NewBook} />
-      <Route exact path="/books/edit" component={EditBook} />
+      <Route
+        exact
+        path="/books/new"
+        render={(props) =>
+          user ? <NewBook {...props} /> : <Redirect to="/" />
+        }
+      />
+      <Route
+        exact
+        path="/books/edit"
+        render={(props) =>
+          user ? <EditBook {...props} /> : <Redirect to="/" />
+        }
+      />
     </Switch>
   );
 }

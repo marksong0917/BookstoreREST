@@ -9,8 +9,8 @@ npm start - Start the server locally on both backend and frontend. (inside clien
 
 ## Usage
 
-test123@123.com
-test123
+test@123.com  
+test
 
 ## Contributing
 

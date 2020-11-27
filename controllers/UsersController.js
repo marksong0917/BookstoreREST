@@ -1,20 +1,14 @@
-const User = require("../models/user");
-const viewPath = "users";
+const User = require('../models/user');
+const { loginUser } = require('./SessionsController');
 
 exports.create = async (req, res) => {
   try {
-    const user = new User(req.body);
-    await User.register(user, req.body.password);
+    let user = new User(req.body);
+    user = await User.register(user, req.body.password);
 
-    req.flash(
-      "success",
-      `Welcome, ${user.fullname}. Thank you for registering.`
-    );
-    res.redirect("/");
+    return loginUser(user, req, res);
   } catch (error) {
-    console.log(error.message);
-    req.flash("danger", error.message);
-    req.session.formBook = req.body;
-    res.redirect(`/register`);
+    console.error(error);
+    res.status(400).json({message: 'There was an issue while registering the user.', error});
   }
 };

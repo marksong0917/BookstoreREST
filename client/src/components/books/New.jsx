@@ -6,14 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 const New = function () {
+  const [redirect, setRedirect] = useState(false);
+  
    const [inputs, setInputs] = useState({
     bookName: "",
     bookIsbn: "",
     bookYear: "",
     bookAuthor: "",
   });
-
-  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,7 +49,7 @@ const New = function () {
     }));
   };
 
-  if (redirect) return <Redirect to="/bookss" />;
+  if (redirect) return <Redirect to="/books" />;
 
   return (
     <Container className="my-5">

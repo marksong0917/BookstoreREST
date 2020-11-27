@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 
 const Edit = function (props) {
   const id = props.location.state.id;
-  //found in docs for react router
+  const [redirect, setRedirect] = useState(false);
+
 
   const [inputs, setInputs] = useState({
     bookName: "",
@@ -16,11 +17,11 @@ const Edit = function (props) {
     bookAuthor: "",
   });
 
-  const [redirect, setRedirect] = useState(false);
+
 
   useEffect(() => {
     (async () => {
-      const bookResp = await Axios.get("/api/books/${id}");
+      const bookResp = await Axios.get(`/api/books/${id}`);
       if (bookResp.status === 200) setInputs(bookResp.book);
     })();
   }, []);

@@ -1,5 +1,5 @@
-const { create } = require("../controllers/UsersController");
+const { create } = require('../controllers/UsersController');
 
-module.exports = (router) => {
-  router.post("/register", create);
+module.exports = router => {
+  router.post('/register', create);
 };
