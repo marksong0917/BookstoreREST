@@ -25,8 +25,8 @@ const Register = ({setUser}) => {
       const resp = await Axios.post('/api/register', inputs);
 
       if (resp.status === 200) {
-        setUser(resp.book.user);
-        sessionStorage.setItem('user', JSON.stringify(resp.book.user));
+        setUser(resp.data.user);
+        sessionStorage.setItem('user', JSON.stringify(resp.data.user));
         toast('You have registered successfully and been logged in.', {
           type: toast.TYPE.SUCCESS
         });

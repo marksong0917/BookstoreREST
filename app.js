@@ -23,7 +23,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Setup our session
+// Setup session
 const passport = require("passport");
 const session = require("express-session");
 app.use(
@@ -42,34 +42,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// // Set our views directory
-// app.set("views", path.join(__dirname, "views"));
-// app.set("view engine", "ejs");
-
-// app.use("/css", express.static("./assets/css"));
-// app.use("/javascript", express.static("./assets/javascript"));
-// app.use("/images", express.static("./assets/images"));
-
-// // Setup flash notifications and defaults
-// const flash = require("connect-flash");
-// app.use(flash());
-// app.use("/", (req, res, next) => {
-//   // Setting default locals
-//   res.locals.pageTitle = "Untitled";
-
-//   // Passing along flash message
-//   res.locals.flash = req.flash();
-//   res.locals.formBook = req.session.formBook || {};
-//   req.session.formBook = {};
-
-//   // Authentication helper
-//   res.locals.authorized = req.isAuthenticated();
-//   if (res.locals.authorized) res.locals.email = req.session.passport.user;
-
-//   next();
-// });
-
-// Our routes
+// routes
 const routes = require('./routes.js');
 app.use('/api', routes);
 
@@ -78,6 +51,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
-// Start our server
+// Start server
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -22,7 +22,7 @@ const New = function () {
       const resp = await Axios.post("/api/books", inputs);
 
       if (resp.status === 200) {
-        toast("You have login in successfully", {
+        toast("you have created a new book sucessfully", {
           type: toast.TYPE.SUCCESS,
         });
         setRedirect(true);

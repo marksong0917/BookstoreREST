@@ -20,8 +20,8 @@ const Login = ({setUser}) => {
       const resp = await Axios.post('/api/authenticate', inputs);
 
       if (resp.status === 200) {
-        setUser(resp.book.user);
-        sessionStorage.setItem('user', JSON.stringify(resp.book.user));
+        setUser(resp.data.user);
+        sessionStorage.setItem('user', JSON.stringify(resp.data.user));
         toast('You have logged in successfully', {
           type: toast.TYPE.SUCCESS
         });
@@ -50,7 +50,7 @@ const Login = ({setUser}) => {
   };
 
   if (redirect) {
-    return (<Redirect to="/tours"/>);
+    return (<Redirect to="/books"/>);
   }
 
   return (

@@ -9,17 +9,19 @@ npm start - Start the server locally on both backend and frontend. (inside clien
 
 ## Usage
 
-test@123.com  
-test
+Register Account - Working
 
 ## Contributing
 
 No
 
-## Known Issues
+## Known Issues / TO-DOs
 
-Once user is logined nav bar wont change.
-User is unavliable to login again and will be promped error trying to login after register account.
+Registering - Fixed  
+Logout - Fixed
+Login - Fixed
+
+Book Archive is not displaying any books to user Id
 
 ## License
 
