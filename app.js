@@ -46,9 +46,9 @@ passport.deserializeUser(User.deserializeUser());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use("/css", express.static("assets/css"));
-app.use("/javascript", express.static("assets/javascript"));
-app.use("/images", express.static("assets/images"));
+app.use("/css", express.static("./assets/css"));
+app.use("/javascript", express.static("./assets/javascript"));
+app.use("/images", express.static("./assets/images"));
 
 // Setup flash notifications and defaults
 const flash = require("connect-flash");

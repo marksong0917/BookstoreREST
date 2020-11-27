@@ -6,7 +6,8 @@ const {
   edit,
   update,
   delete: _delete,
-} = require("../controllers/BooksController");
+} = require("../controllers/BooksContrller"); 
+
 
 function auth(req, res, next) {
   if (!req.isAuthenticated()) {

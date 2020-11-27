@@ -4,22 +4,22 @@ bookstore is a another bookstore web API created with the use of Express and Mon
 
 ## Installation
 
-Use the package.json file in both main folder and inside client folder to install dependencies
-npm install
-yarn install
+npm install - to install package.json dependencies for both backend and frontend. (inside client and outside client)
+npm start - Start the server locally on both backend and frontend. (inside client and outside client)
 
 ## Usage
 
-At the moment the API currently supports 4 basic commands which are
-POST
-GET
-PUT
-DELETE
-More instructions in index.js where each quaries are executed
+test123@123.com
+test123
 
 ## Contributing
 
 No
+
+## Known Issues
+
+Once user is logined nav bar wont change.
+User is unavliable to login again and will be promped error trying to login after register account.
 
 ## License
 
