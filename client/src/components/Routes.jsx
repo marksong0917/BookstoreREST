@@ -29,7 +29,7 @@ function Routes({ user, setUser }) {
       <Route
         exact
         path="/logout"
-        render={(RenderProps) => <Login {...RenderProps} setUser={setUser} />}
+        render={(RenderProps) => <Logout {...RenderProps} setUser={setUser} />}
       />
       <Route
         exact
