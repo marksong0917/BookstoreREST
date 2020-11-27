@@ -7,18 +7,17 @@ Bookstore API website
 npm install - to install package.json dependencies for both backend and frontend. (inside client and outside client)
 npm start - Start the server locally on both backend and frontend. (inside client and outside client)
 
-## Usage
+## Features
 
-Running npm start on both servers will automatcally open the website for usage
+Running npm start on both servers and nav website
 
-## Known Issues / TO-DOs
-
-Authentication with Logout - Working
-List Books - Working
-New Book - Working
-Delete Book - Working
-
-Book Archive is not displaying any books to user Id
+Register - Yes
+Login - Yes
+Logout - Yes
+Get Books - Yes
+New Book - Yes
+Edit Book - Yes
+Delete Book - Yes
 
 ## License
 
