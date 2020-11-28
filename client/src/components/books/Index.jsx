@@ -46,12 +46,18 @@ const Index = function ({ user }) {
           books.map((book, i) => (
             <div key={i} className="card my-3">
               <div className="card-header">
-                <h5 className="card-title">{book.bookName}</h5>
+                <h5 className="card-title">Book Name: {book.bookName}</h5>
               </div>
 
               <div className="card-body">
                 <p className="card-text">
-                 {book.bookIsbn} { book.bookYear} { book.bookAuthor}. 
+                 Book ISBN: {book.bookIsbn}
+                </p>
+                <p className="card-text">
+                 Book Year: { book.bookYear}
+                </p>
+                <p className="card-text">
+                 Book Author:{ book.bookAuthor}
                 </p>
               </div>
 
@@ -65,11 +71,11 @@ const Index = function ({ user }) {
                       },
                     }}
                   >
-                    <i className="fa fa-edit"></i>
+                    <i className="fa fa-edit">Edit</i>
                   </Link>
 
                   <button type="button" onClick={() => deleteBook(book)}>
-                    <i className="fa fa-trash"></i>
+                    <i className="fa fa-trash">Delete</i>
                   </button>
                 </div>
               ) : null}
